@@ -4,11 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 
 <body>
     <h1>Calculator with EJS</h1>
+
+    <input id="num1" placeholder="Number 1">
+    <input id="num2" placeholder="Number 2">
+
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+
+    <h2 id="results"></h2>
+
+    <script src="/script.js"></script>
+
+
 </body>
 
 </html>
