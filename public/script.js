@@ -1,13 +1,13 @@
-function calculate(op) {
-    const a = Number(document.getElementById("num1").value);
-    const b = Number(document.getElementById("num2").value);
+let display = document.getElementById("display");
 
-    let result;
+function press(value) {
+    display.value += value;
+}
 
-    if (op === "+") result = a + b;
-    if (op === "-") result = a - b;
-    if (op === "*") result = a * b;
-    if (op === "/") result = a / b;
+function calculate() {
+    display.value = eval(display.value);
+}
 
-    document.getElementById("results").innerText = result;
+function clearDisplay() {
+    display.value = "";
 }
