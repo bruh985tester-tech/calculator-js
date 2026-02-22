@@ -1,3 +1,7 @@
+// Main server file for the application
+// This file sets up the Express server and defines the routes for the application.
+
+
 const express = require("express");
 const app = express();
 
