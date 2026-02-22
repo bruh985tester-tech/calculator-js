@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 10px; background: #f9f9f9; }
+    
+    #log { 
+        margin-top: 10px; 
+        padding: 10px; 
+        background: #fff; 
+        height: 320px; 
+        overflow-y: auto; 
+        border: 1px solid #e0e0e0; 
+        border-radius: 8px; 
+        font-size: 12px; 
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .input-group { display: flex; gap: 5px; margin-bottom: 10px; }
+    
+    textarea { 
+        flex: 1;
+        height: 60px; 
+        font-family: monospace; 
+        border: 1px solid #ccc; 
+        border-radius: 6px; 
+        padding: 8px; 
+        box-sizing: border-box;
+        resize: none;
+    }
+
+    /* Microphone Button */
+    #mic-btn {
+        width: 40px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+    #mic-btn.listening { background: #fee2e2; border-color: #ef4444; color: #dc2626; animation: pulse 1.5s infinite; }
+    
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+    .controls { display: flex; gap: 5px; margin-bottom: 5px; }
+    
+    button { 
+        flex: 1; 
+        padding: 10px; 
+        border: none; 
+        cursor: pointer; 
+        border-radius: 6px; 
+        font-weight: 600; 
+        transition: background 0.2s;
+    }
+    
+    #run { background: #2563eb; color: white; }
+    #run:hover { background: #1d4ed8; }
+    
+    #stop { background: #dc2626; color: white; display: none; }
+    #stop:hover { background: #b91c1c; }
+
+    #confirm-ui {
+        display: none;
+        background: #fff3cd;
+        border: 1px solid #ffeeba;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    #confirm-ui p { margin: 0 0 10px 0; color: #856404; font-weight: bold; }
+    #btn-yes { background: #28a745; color: white; width: 40%; }
+    #btn-no { background: #6c757d; color: white; width: 40%; }
+
+    .msg { margin-bottom: 6px; padding: 4px; border-radius: 4px; }
+    .user { color: #1e293b; font-weight: bold; border-left: 3px solid #2563eb; padding-left: 6px; }
+    .ai { color: #059669; border-left: 3px solid #059669; padding-left: 6px; }
+    .error { color: #dc2626; background: #fee2e2; }
+    .debug { color: #64748b; font-size: 10px; font-family: monospace; }
+    .action { color: #d97706; font-weight: bold; }
+    
+    .settings-link { text-align: right; font-size: 11px; margin-top: 5px; }
+    .settings-link a { color: #666; text-decoration: none; }
+    .settings-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h3>🧬 NanoAgent v5.2</h3>
+  
+  <div class="input-group">
+      <textarea id="prompt" placeholder="Ex: Find cheap sony headphones..."></textarea>
+      <button id="mic-btn" title="Speak">🎤</button>
+  </div>
+  
+  <div class="controls">
+      <button id="run">START AGENT</button>
+      <button id="stop">STOP</button>
+  </div>
+
+  <label style="font-size:11px; color:#666;">
+    <input type="checkbox" id="show-boxes" checked> Visual Debug
+  </label>
+
+  <div id="confirm-ui">
+      <p>⚠️ Agent wants to CLICK sensitive element. Allow?</p>
+      <div style="display:flex; justify-content:center; gap:10px;">
+          <button id="btn-yes">YES</button>
+          <button id="btn-no">NO</button>
+      </div>
+  </div>
+
+  <div id="log"></div>
+  
+  <div class="settings-link"><a href="#" id="open-options">⚙️ Settings</a></div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
