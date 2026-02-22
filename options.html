@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head><title>Agent Settings</title></head>
+<head><title>NanoAgent Settings</title></head>
 <body style="padding: 20px; font-family: sans-serif;">
-  <h3>Agent Configuration</h3>
+  <h3>⚙️ NanoAgent Configuration</h3>
   
-  <label>Gemini API Key:</label><br>
-  <input type="password" id="apiKey" style="width: 100%; margin: 5px 0 10px; padding: 8px;">
-  <br>
+  <h4>🔑 API Keys</h4>
+  <label>Google Gemini Key:</label>
+  <input type="password" id="apiKey" style="width: 100%; padding: 5px; margin-bottom: 5px;">
+  <label>DeepSeek Key (Optional):</label>
+  <input type="password" id="deepseekKey" style="width: 100%; padding: 5px;">
   
-  <button id="fetchModels" style="padding: 5px 10px; background: #6c757d; color: white; border: none; cursor: pointer; border-radius: 3px; font-size: 12px; margin-bottom: 15px;">ðŸ”„ Load Available Models</button>
-  <br>
-  
-  <label>Select Model:</label><br>
-  <select id="model" style="width: 100%; margin: 5px 0 15px; padding: 8px;">
-    <option value="" disabled selected>Click 'Load' above...</option>
-    <option value="gemini-1.5-flash">Gemini 1.5 Flash (Fallback)</option>
-  </select>
   <br><br>
-  
-  <button id="save" style="padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer;">Save Settings</button>
-  <p id="status" style="color: green; margin-top: 10px;"></p>
+  <button id="fetchModels" style="padding: 5px 10px; background: #6c757d; color: white; border: none; cursor: pointer; border-radius: 3px;">🔄 Load Google Models</button>
 
+  <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+
+  <h4>🧠 Model Selection</h4>
+  
+  <label><strong>The Planner:</strong> (Logic & Reasoning)</label><br>
+  <select id="plannerModel" style="width: 100%; padding: 8px; margin-bottom: 15px;">
+    <option value="" disabled selected>Click 'Load' above first...</option>
+    <option value="deepseek-chat">DeepSeek V3 (Manual)</option>
+  </select>
+
+  <label><strong>The Navigator:</strong> (Fast Execution)</label><br>
+  <select id="navigatorModel" style="width: 100%; padding: 8px; margin-bottom: 15px;">
+     <option value="gemini-1.5-flash">Gemini 1.5 Flash (Recommended)</option>
+     <option value="deepseek-chat">DeepSeek V3</option>
+  </select>
+
+  <label><strong>Speech-to-Text:</strong> (Voice Input)</label><br>
+  <select id="sttModel" style="width: 100%; padding: 8px; margin-bottom: 15px;">
+     <option value="native" selected>Chrome Native (Free & Fast)</option>
+     <option value="openai" disabled>OpenAI Whisper (Coming Soon)</option>
+  </select>
+  
+  <button id="save" style="padding: 10px 20px; background: #2563eb; color: white; border: none; cursor: pointer;">Save Settings</button>
+  <p id="status" style="color: green; margin-top: 10px;"></p>
+  
   <script src="options.js"></script>
 </body>
 </html>
