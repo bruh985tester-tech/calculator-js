@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 10px; }
+    textarea { width: 100%; height: 80px; margin-bottom: 10px; font-family: monospace; }
+    button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 4px; }
+    button:hover { background: #0056b3; }
+    #log { margin-top: 10px; padding: 10px; background: #f8f9fa; height: 300px; overflow-y: auto; border: 1px solid #ddd; font-size: 11px; font-family: monospace; white-space: pre-wrap; }
+    .user { color: #333; font-weight: bold; }
+    .ai { color: #008000; }
+    .error { color: #d32f2f; }
+    .debug { color: #666; font-size: 10px; }
+  </style>
+</head>
+<body>
+  <h3>ðŸ§  Nano Agent v2.3</h3>
+  <textarea id="prompt">find cheap sony headphones</textarea>
+  <button id="run">ASK GEMINI & RUN</button>
+  <div id="log"></div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
