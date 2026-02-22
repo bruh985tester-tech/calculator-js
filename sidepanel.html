@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 10px; }
+    textarea { width: 100%; height: 80px; margin-bottom: 10px; font-family: monospace; border: 1px solid #ccc; border-radius: 4px; padding: 5px; }
+    button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 4px; margin-bottom: 5px; }
+    button:hover { background: #0056b3; }
+    button.stop { background: #dc3545; }
+    button.stop:hover { background: #a71d2a; }
+    #log { margin-top: 10px; padding: 10px; background: #f8f9fa; height: 350px; overflow-y: auto; border: 1px solid #ddd; font-size: 11px; font-family: monospace; white-space: pre-wrap; border-radius: 4px; }
+    
+    .user { color: #333; font-weight: bold; margin-top: 10px; display: block; }
+    .ai { color: #008000; }
+    .error { color: #d32f2f; }
+    .debug { color: #666; font-size: 10px; }
+    .highlight-toggle { font-size: 12px; margin-bottom: 10px; display: block; }
+  </style>
+</head>
+<body>
+  <h3>ðŸ§  Nano Agent v3.1</h3>
+  <textarea id="prompt">find cheap sony headphones and click 4 stars and up</textarea>
+  
+  <label class="highlight-toggle">
+    <input type="checkbox" id="show-boxes" checked> Show Visual Outlines
+  </label>
+  
+  <button id="run">ASK GEMINI & RUN</button>
+  <button id="stop" class="stop" style="display:none;">STOP AGENT</button>
+  
+  <div id="log"></div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
